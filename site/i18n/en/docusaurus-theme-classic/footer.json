@@ -1,0 +1,46 @@
+{
+  "link.title.Conteúdo": {
+    "message": "Content",
+    "description": "The title of the footer links column with title=Conteúdo in the footer"
+  },
+  "link.title.Referência": {
+    "message": "Reference",
+    "description": "The title of the footer links column with title=Referência in the footer"
+  },
+  "link.title.Projeto": {
+    "message": "Project",
+    "description": "The title of the footer links column with title=Projeto in the footer"
+  },
+  "link.item.label.Biblioteca BIM/CAD": {
+    "message": "BIM/CAD Library",
+    "description": "The label of footer link with label=Biblioteca BIM/CAD linking to /docs/biblioteca-bim-cad"
+  },
+  "link.item.label.Catálogo": {
+    "message": "Catalog",
+    "description": "The label of footer link with label=Catálogo linking to /docs/catalogo"
+  },
+  "link.item.label.Cursos": {
+    "message": "Courses",
+    "description": "The label of footer link with label=Cursos linking to /docs/cursos"
+  },
+  "link.item.label.Normas": {
+    "message": "Standards",
+    "description": "The label of footer link with label=Normas linking to /docs/normas"
+  },
+  "link.item.label.Documentação": {
+    "message": "Documentation",
+    "description": "The label of footer link with label=Documentação linking to /docs/documentacao"
+  },
+  "link.item.label.Cálculos": {
+    "message": "Calculations",
+    "description": "The label of footer link with label=Cálculos linking to /docs/calculos"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/gustavohsz/wiki-engenharia"
+  },
+  "copyright": {
+    "message": "Copyright © 2026 gustavohsz. Content under <a href=\"https://github.com/gustavohsz/wiki-engenharia/blob/main/LICENSE-CONTENT.md\">CC BY 4.0</a>, code under <a href=\"https://github.com/gustavohsz/wiki-engenharia/blob/main/LICENSE\">MIT</a>. Built with Docusaurus.",
+    "description": "The footer copyright"
+  }
+}

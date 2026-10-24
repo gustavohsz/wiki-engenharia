@@ -1,43 +1,48 @@
 // @ts-check
-// `@type` JSDoc annotations allow editor autocompletion and type checking
-// (when paired with `@ts-check`).
-// There are various equivalent ways to declare your Docusaurus config.
-// See: https://docusaurus.io/docs/api/docusaurus-config
+// Configuração do site. Referência: https://docusaurus.io/docs/api/docusaurus-config
+// Este arquivo roda no Node.js: não use código de navegador (window, JSX) aqui.
 
 import {themes as prismThemes} from 'prism-react-renderer';
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+const repoUrl = 'https://github.com/gustavohsz/wiki-engenharia';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Wiki de Engenharia',
+  tagline: 'Engenharia elétrica com Revit e AutoCAD',
   favicon: 'img/favicon.ico',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true, // Antecipa o comportamento do Docusaurus v4 (inclui o modo "faster")
+    faster: {
+      // O minificador HTML nativo do SWC (@swc/html 1.16) recusa carregar no
+      // Windows quando as permissões NTFS de C:\ ou de AppData\Local permitem
+      // escrita a outros usuários (erro ERR_SWC_NATIVE_CACHE). Desligado, o
+      // Docusaurus usa o minificador em JavaScript: build um pouco mais lento,
+      // mesmo resultado. As demais otimizações do modo "faster" continuam ativas.
+      swcHtmlMinimizer: false,
+    },
   },
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  // Publicação no GitHub Pages: https://gustavohsz.github.io/wiki-engenharia/
+  url: 'https://gustavohsz.github.io',
+  baseUrl: '/wiki-engenharia/',
+  organizationName: 'gustavohsz',
+  projectName: 'wiki-engenharia',
+  trailingSlash: false,
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
-
+  // Link quebrado quebra o build. Intencional (ver AGENTS.md).
   onBrokenLinks: 'throw',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  // Português é o idioma padrão; inglês fica em /wiki-engenharia/en/.
+  // Ver decisions/0004-idiomas-pt-en.md.
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'pt-BR',
+    locales: ['pt-BR', 'en'],
+    localeConfigs: {
+      'pt-BR': {label: 'Português', htmlLang: 'pt-BR'},
+      en: {label: 'English', htmlLang: 'en'},
+    },
   },
 
   presets: [
@@ -47,26 +52,10 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // Link "Editar esta página" aponta para o arquivo em português no GitHub.
+          editUrl: `${repoUrl}/tree/main/site/`,
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false, // O site não tem blog.
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -77,76 +66,56 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
+      // TODO: trocar pela imagem de compartilhamento do projeto.
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'My Site',
+        title: 'Wiki de Engenharia',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Logo da Wiki de Engenharia',
           src: 'img/logo.svg',
         },
         items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Tutorial',
-          },
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
-          },
+          {type: 'doc', docId: 'biblioteca-bim-cad/index', position: 'left', label: 'Biblioteca BIM/CAD'},
+          {type: 'doc', docId: 'catalogo/index', position: 'left', label: 'Catálogo'},
+          {type: 'doc', docId: 'cursos/index', position: 'left', label: 'Cursos'},
+          {type: 'doc', docId: 'normas/index', position: 'left', label: 'Normas'},
+          {type: 'doc', docId: 'documentacao/index', position: 'left', label: 'Documentação'},
+          {type: 'doc', docId: 'calculos/index', position: 'left', label: 'Cálculos'},
+          {type: 'localeDropdown', position: 'right'},
+          {href: repoUrl, label: 'GitHub', position: 'right'},
         ],
       },
       footer: {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Conteúdo',
             items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
+              {label: 'Biblioteca BIM/CAD', to: '/docs/biblioteca-bim-cad'},
+              {label: 'Catálogo', to: '/docs/catalogo'},
+              {label: 'Cursos', to: '/docs/cursos'},
             ],
           },
           {
-            title: 'Community',
+            title: 'Referência',
             items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
-              },
+              {label: 'Normas', to: '/docs/normas'},
+              {label: 'Documentação', to: '/docs/documentacao'},
+              {label: 'Cálculos', to: '/docs/calculos'},
             ],
           },
           {
-            title: 'More',
+            title: 'Projeto',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
+              {label: 'GitHub', href: repoUrl},
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        // Licenças: ver decisions/0005-licencas-mit-e-cc-by.md
+        copyright: `Copyright © ${new Date().getFullYear()} gustavohsz. Conteúdo sob <a href="${repoUrl}/blob/main/LICENSE-CONTENT.md">CC BY 4.0</a>, código sob <a href="${repoUrl}/blob/main/LICENSE">MIT</a>. Feito com Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

@@ -1,0 +1,38 @@
+{
+  "title": {
+    "message": "Engineering Wiki",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Engineering Wiki logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Biblioteca BIM/CAD": {
+    "message": "BIM/CAD Library",
+    "description": "Navbar item with label Biblioteca BIM/CAD"
+  },
+  "item.label.Catálogo": {
+    "message": "Catalog",
+    "description": "Navbar item with label Catálogo"
+  },
+  "item.label.Cursos": {
+    "message": "Courses",
+    "description": "Navbar item with label Cursos"
+  },
+  "item.label.Normas": {
+    "message": "Standards",
+    "description": "Navbar item with label Normas"
+  },
+  "item.label.Documentação": {
+    "message": "Documentation",
+    "description": "Navbar item with label Documentação"
+  },
+  "item.label.Cálculos": {
+    "message": "Calculations",
+    "description": "Navbar item with label Cálculos"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

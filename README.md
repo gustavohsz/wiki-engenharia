@@ -18,7 +18,7 @@ npm install
 npm start
 ```
 
-O site abre em http://localhost:3000.
+O site abre em http://localhost:3000/wiki-engenharia/. Publicado em https://gustavohsz.github.io/wiki-engenharia/.
 
 ## Estrutura
 
@@ -29,4 +29,8 @@ O site abre em http://localhost:3000.
 
 ## Licença
 
-A definir. Veja o `ROADMAP.md`.
+- **Conteúdo** (textos, imagens, modelos de página, arquivos BIM/CAD próprios): [CC BY 4.0](LICENSE-CONTENT.md). Pode copiar, adaptar e usar comercialmente, citando a fonte.
+- **Código** (site, calculadoras, workflows): [MIT](LICENSE).
+- Arquivos de terceiros mantêm a licença original, indicada na página de cada item.
+
+Detalhes em [`decisions/0005-licencas-mit-e-cc-by.md`](decisions/0005-licencas-mit-e-cc-by.md).

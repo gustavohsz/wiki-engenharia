@@ -35,13 +35,14 @@ Wiki de engenharia **pública**, em **português (idioma padrão) e inglês**, v
 - **Docusaurus 3.10.2** (preset `classic`), **JavaScript** (módulos ESM), **React 19**, **Node >= 20**.
 - O site fica na pasta **`site/`**. Os arquivos do projeto (este guia, roadmap, decisões, templates) ficam na raiz e **não** entram no site publicado.
 - `site/docusaurus.config.js` usa `onBrokenLinks: 'throw'`: link quebrado quebra o build. Isso é intencional.
+- `future.faster.swcHtmlMinimizer: false` no config: o minificador HTML nativo do SWC falha no Windows do mantenedor (`ERR_SWC_NATIVE_CACHE`, por causa das permissões NTFS de `C:\` e `AppData\Local`). Não reative sem testar o build no Windows.
 
 Comandos (sempre dentro de `site/`):
 
 | Comando | Para quê |
 |---|---|
 | `npm install` | Instalar dependências (uma vez, ou quando o `package.json` mudar) |
-| `npm start` | Servidor local com recarga automática (http://localhost:3000) |
+| `npm start` | Servidor local com recarga automática (http://localhost:3000/wiki-engenharia/). Serve **um idioma por vez**: para o inglês, `npm start -- --locale en` |
 | `npm run build` | Build de produção. **Rode antes de dar qualquer tarefa por concluída** |
 | `npm run serve` | Servir o build gerado, para conferir como ficará publicado |
 | `npm run write-translations -- --locale en` | Gerar/atualizar textos de interface em inglês |
@@ -56,7 +57,7 @@ wiki-engenharia/
 ├── README.md            ← apresentação pública
 ├── decisions/           ← registro de decisões (ADRs)
 ├── templates/           ← modelos de página por seção (fora do site)
-├── .github/workflows/   ← publicação automática (a criar)
+├── .github/workflows/   ← publicação automática (deploy.yml)
 └── site/                ← aplicação Docusaurus
     ├── docusaurus.config.js
     ├── sidebars.js
@@ -81,6 +82,8 @@ sidebar_position: 10
 ```
 
 - A ordem no menu vem de `sidebar_position` e de `_category_.json` em cada pasta de seção.
+- **Não use `label` no `_category_.json`.** O nome da seção no menu vem do `title` do `index.md` da pasta, em cada idioma. Com `label`, o menu em inglês mostraria o texto em português.
+- Textos de interface (navbar, rodapé, página inicial) ficam em `site/i18n/en/*.json`. Depois de mudar a navbar, o rodapé ou textos com `<Translate>`/`translate()`, rode `npm run write-translations -- --locale en` e traduza as chaves novas. O comando grava o texto em português como valor inicial.
 - Comece cada página nova a partir do modelo correspondente em `templates/`.
 - Imagens em `site/static/img/<seção>/`. Texto alternativo obrigatório.
 
@@ -90,6 +93,7 @@ O repositório é **público**. Portanto:
 
 1. **Normas técnicas pagas** (ABNT NBR, IEC, etc.): nunca copiar o texto. Apenas resumo próprio, identificação (número, ano, título) e link para a fonte oficial.
 2. **Arquivos de terceiros** (famílias e blocos de fabricantes): só publicar se a licença permitir redistribuição. Registrar fonte e licença em cada ficha.
+   - **Licenças do projeto** (`decisions/0005`): o código fica sob MIT (`LICENSE`) e o conteúdo, incluindo arquivos BIM/CAD próprios, sob CC BY 4.0 (`LICENSE-CONTENT.md`). Material de terceiros mantém a licença original, que prevalece. Não publique nada que não possa ser redistribuído sob essas condições.
 3. **Nada de dados pessoais, credenciais ou projetos de clientes** no repositório.
 4. **Cálculos:** toda calculadora deve informar norma e edição de referência, premissas, unidades, limites de aplicação e o aviso de que é ferramenta de apoio e não substitui a responsabilidade técnica do profissional.
 5. **Famílias Revit não abrem em versões anteriores do Revit.** Indique sempre a versão do arquivo e organize os downloads por versão.
@@ -100,14 +104,18 @@ O repositório é **público**. Portanto:
 Atualizado em: 2026-10-24.
 
 - [x] Repositório criado e público
-- [x] Scaffold padrão do Docusaurus em `site/` (JavaScript, sem personalização)
+- [x] Scaffold do Docusaurus em `site/`
 - [x] `AGENTS.md`, `CLAUDE.md`, `ROADMAP.md`, `decisions/`, `templates/`
-- [ ] Personalizar `site/docusaurus.config.js`: hoje ainda tem título "My Site", `url`/`baseUrl`/`organizationName`/`projectName` de exemplo, `i18n` só com `en`, blog e tutorial de exemplo
-- [ ] Remover blog e tutorial de exemplo, criar as 6 seções em PT e EN
-- [ ] Publicação no GitHub Pages
-- [ ] Licença do repositório (decisão pendente)
+- [x] **Fase 1 concluída.** `npm install` e `npm run build` validados no Windows (Node 22). Config com título, `url`/`baseUrl` do GitHub Pages e i18n `pt-BR` (padrão) + `en` com seletor de idioma. Blog e tutorial de exemplo removidos. 6 seções criadas em PT e EN (`_category_.json` + `index.md`). Navbar, rodapé e página inicial apontam para as 6 seções. Interface em inglês em `site/i18n/en/`.
+- [x] Workflow de publicação `.github/workflows/deploy.yml` criado (Fase 2). Ele roda `npm ci` e `npm run build` em `site/` com Node 22 e publica `site/build` no GitHub Pages a cada push na `main` que mexa em `site/`. Em pull requests só faz o build.
+- [ ] Ativar o Pages no GitHub (Settings → Pages → Source: GitHub Actions) e conferir a primeira publicação. Até isso ser feito, o job "Publicar" falha.
+- [x] Licenças definidas (`decisions/0005`): código MIT (`LICENSE`), conteúdo CC BY 4.0 (`LICENSE-CONTENT.md`). As duas aparecem no rodapé do site.
 
-**Atenção:** nada além do scaffold foi validado com `npm run build`. A sessão de planejamento ocorreu num ambiente sem acesso ao npm. A primeira tarefa de quem continuar é rodar `npm install` e `npm run build` em `site/` e corrigir o que aparecer.
+Pendências menores:
+
+- Logo (`static/img/logo.svg`), favicon e imagem de compartilhamento (`docusaurus-social-card.jpg`) ainda são os do Docusaurus.
+- `npm install` reporta 34 vulnerabilidades em dependências do Docusaurus. Não rode `npm audit fix --force`, porque ele troca versões e quebra o site. Acompanhe as atualizações do Docusaurus.
+- As páginas de seção são só introduções, com aviso de "em construção".
 
 ## 8. Regras de trabalho para agentes
 
