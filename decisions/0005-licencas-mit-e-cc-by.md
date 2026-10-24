@@ -26,4 +26,4 @@ O repositório é público, mas sem licença ninguém pode reutilizar legalmente
 - Qualquer pessoa pode copiar, adaptar e usar comercialmente o material, desde que cite a fonte.
 - Toda contribuição externa passa a ser aceita sob essas mesmas licenças.
 - Fichas da Biblioteca BIM/CAD e do Catálogo precisam declarar a licença quando o item for de terceiros (os modelos em `templates/` já pedem fonte e licença).
-- O logo e as imagens atuais do Docusaurus são MIT da Meta e precisam ser trocados por imagens próprias.
+- O logo e as imagens do Docusaurus foram substituídos por uma identidade visual própria (pasta `marca/`), sob CC BY 4.0.

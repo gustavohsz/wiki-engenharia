@@ -10,7 +10,14 @@ const repoUrl = 'https://github.com/gustavohsz/wiki-engenharia';
 const config = {
   title: 'Wiki de Engenharia',
   tagline: 'Engenharia elétrica com Revit e AutoCAD',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.ico', // Imagens de marca: geradas por marca/gerar-imagens.mjs
+
+  // Favicon em SVG (nítido e com variante para modo escuro) e ícone para iPhone/iPad.
+  // Os caminhos incluem o baseUrl (/wiki-engenharia/): se ele mudar, mude aqui também.
+  headTags: [
+    {tagName: 'link', attributes: {rel: 'icon', type: 'image/svg+xml', href: '/wiki-engenharia/img/favicon.svg'}},
+    {tagName: 'link', attributes: {rel: 'apple-touch-icon', href: '/wiki-engenharia/img/apple-touch-icon.png'}},
+  ],
 
   future: {
     v4: true, // Antecipa o comportamento do Docusaurus v4 (inclui o modo "faster")
@@ -63,11 +70,27 @@ const config = {
     ],
   ],
 
+  // Busca local: índice gerado no build, sem serviço externo.
+  // Ver decisions/0006-busca-local.md.
+  themes: [
+    [
+      '@easyops-cn/docusaurus-search-local',
+      /** @type {import('@easyops-cn/docusaurus-search-local').PluginOptions} */
+      ({
+        hashed: true, // Nome do índice muda a cada build: o navegador não usa índice velho
+        language: ['pt', 'en'],
+        indexBlog: false, // O site não tem blog
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+      }),
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // TODO: trocar pela imagem de compartilhamento do projeto.
-      image: 'img/docusaurus-social-card.jpg',
+      // Imagem mostrada ao compartilhar um link do site (WhatsApp, LinkedIn etc.).
+      image: 'img/cartao-social.png',
       colorMode: {
         respectPrefersColorScheme: true,
       },
@@ -76,16 +99,21 @@ const config = {
         logo: {
           alt: 'Logo da Wiki de Engenharia',
           src: 'img/logo.svg',
+          srcDark: 'img/logo-escuro.svg',
         },
         items: [
-          {type: 'doc', docId: 'biblioteca-bim-cad/index', position: 'left', label: 'Biblioteca'}, // Rótulo curto: a navbar fica apertada em telas médias
-          {type: 'doc', docId: 'catalogo/index', position: 'left', label: 'Catálogo'},
-          {type: 'doc', docId: 'cursos/index', position: 'left', label: 'Cursos'},
-          {type: 'doc', docId: 'normas/index', position: 'left', label: 'Normas'},
-          {type: 'doc', docId: 'documentacao/index', position: 'left', label: 'Documentação'},
-          {type: 'doc', docId: 'calculos/index', position: 'left', label: 'Cálculos'},
+          // Links (e não type: 'doc'): com uma barra lateral única, type: 'doc' deixaria
+          // o primeiro item ativo em todas as páginas. activeBasePath ativa só a seção certa.
+          // "Biblioteca" é rótulo curto: a navbar fica apertada em telas médias.
+          {to: '/docs/biblioteca-bim-cad', activeBasePath: '/docs/biblioteca-bim-cad', position: 'left', label: 'Biblioteca'},
+          {to: '/docs/catalogo', activeBasePath: '/docs/catalogo', position: 'left', label: 'Catálogo'},
+          {to: '/docs/cursos', activeBasePath: '/docs/cursos', position: 'left', label: 'Cursos'},
+          {to: '/docs/normas', activeBasePath: '/docs/normas', position: 'left', label: 'Normas'},
+          {to: '/docs/documentacao', activeBasePath: '/docs/documentacao', position: 'left', label: 'Documentação'},
+          {to: '/docs/calculos', activeBasePath: '/docs/calculos', position: 'left', label: 'Cálculos'},
           {type: 'localeDropdown', position: 'right'},
-          {href: repoUrl, label: 'GitHub', position: 'right'},
+          // GitHub como ícone (CSS .header-github-link em src/css/custom.css), para caber a busca.
+          {href: repoUrl, position: 'right', className: 'header-github-link', 'aria-label': 'GitHub'},
         ],
       },
       footer: {

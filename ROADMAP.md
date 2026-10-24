@@ -18,7 +18,7 @@ Legenda: `[x]` feito · `[ ]` pendente. Atualizado em 2026-10-24.
 - [x] Navbar com as 6 seções, footer sem links de exemplo, página inicial com cartões das seções
 - [x] `npm run write-translations -- --locale en` para a interface em inglês
 - [x] `.gitignore` conferido na raiz e em `site/`
-- [ ] Trocar logo, favicon e imagem de compartilhamento (ainda são os do Docusaurus)
+- [x] Logo, favicon e imagem de compartilhamento próprios (feito na Fase 6; ver `marca/`)
 
 ## Fase 2 — Publicação
 
@@ -57,6 +57,7 @@ Legenda: `[x]` feito · `[ ]` pendente. Atualizado em 2026-10-24.
 
 ## Fase 6 — Melhorias
 
-- [ ] Busca (avaliar plugin de busca local da comunidade com suporte a PT e EN)
+- [x] Busca local em PT e EN com `@easyops-cn/docusaurus-search-local` (`decisions/0006`). Junto com ela: navbar ativa por seção, GitHub como ícone e faixa compacta da navbar até 1279 px
+- [x] Identidade visual própria: logo (raio), cores azul e âmbar, favicon SVG/ICO, apple-touch-icon e imagem de compartilhamento, com fontes e gerador em `marca/`
 - [ ] Verificação automática de links externos
 - [ ] Revisar o conteúdo em inglês

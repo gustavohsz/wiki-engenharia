@@ -58,6 +58,7 @@ wiki-engenharia/
 ├── README.md            ← apresentação pública
 ├── decisions/           ← registro de decisões (ADRs)
 ├── templates/           ← modelos de página por seção (fora do site)
+├── marca/               ← fontes do logo, favicon e imagem social + gerador (fora do site)
 ├── .github/workflows/   ← publicação automática (deploy.yml)
 └── site/                ← aplicação Docusaurus
     ├── docusaurus.config.js
@@ -85,6 +86,8 @@ sidebar_position: 10
 - A ordem no menu vem de `sidebar_position` e de `_category_.json` em cada pasta de seção.
 - **Não use `label` no `_category_.json`.** O nome da seção no menu vem do `title` do `index.md` da pasta, em cada idioma. Com `label`, o menu em inglês mostraria o texto em português.
 - Textos de interface (navbar, rodapé, página inicial) ficam em `site/i18n/en/*.json`. Depois de mudar a navbar, o rodapé ou textos com `<Translate>`/`translate()`, rode `npm run write-translations -- --locale en` e traduza as chaves novas. O comando grava o texto em português como valor inicial.
+- **`site/i18n/pt-BR/code.json` tem só as chaves da busca** (`theme.SearchBar.*`, `theme.SearchPage.*`), que o plugin não traduz para português. **Não gere esse arquivo com `write-translations --locale pt-BR`:** ele congelaria os textos em português do código, e mudanças futuras em `translate()` seriam ignoradas sem aviso.
+- **Itens da navbar são links com `activeBasePath`**, não `type: 'doc'`. Com uma barra lateral única, `type: 'doc'` deixaria o primeiro item ativo em todas as páginas, e a busca usaria esse item como início do caminho de cada resultado.
 - Comece cada página nova a partir do modelo correspondente em `templates/`.
 - Imagens em `site/static/img/<seção>/`. Texto alternativo obrigatório.
 
@@ -114,7 +117,7 @@ Atualizado em: 2026-10-24.
 
 Pendências menores:
 
-- Logo (`static/img/logo.svg`), favicon e imagem de compartilhamento (`docusaurus-social-card.jpg`) ainda são os do Docusaurus.
+- **Identidade visual própria:** raio âmbar em quadrado azul, com cor principal azul (#185FA5 no claro, #5EA2E8 no escuro). Os fontes ficam em `marca/`. As imagens publicadas (logo claro e escuro, favicon SVG e ICO, apple-touch-icon, `cartao-social.png`) são **geradas** por `node marca/gerar-imagens.mjs`, que usa o Chrome instalado. Não edite as cópias em `site/static/img/`: edite os fontes e rode o script. Detalhes em `marca/README.md`.
 - `npm install` reporta 34 vulnerabilidades em dependências do Docusaurus. Não rode `npm audit fix --force`, porque ele troca versões e quebra o site. Acompanhe as atualizações do Docusaurus.
 - **Fase 3 (conteúdo piloto):** 5 das 6 seções têm uma página real em PT e EN: o resumo da NBR 5410, queda de tensão, a ficha do cabo 450/750 V, a Aula 1 do curso de Revit e "Como criar uma página". A Biblioteca BIM/CAD espera um arquivo próprio do mantenedor e a decisão 0003. As páginas foram escritas por IA e revisadas pelo mantenedor em 2026-10-24.
 - **Fase 4 (calculadora):** a calculadora de queda de tensão está em `site/src/components/QuedaDeTensao/` e embutida em `calculos/queda-de-tensao.md` (PT e EN).
@@ -125,7 +128,8 @@ Pendências menores:
 - A interface fica em `index.js` + `styles.module.css`. Os textos usam `translate()`/`<Translate>` com ids `calc.<sigla>.*`, traduzidos em `site/i18n/en/code.json`. O layout usa container query, porque a página de docs divide a largura com os menus.
 - A calculadora abre preenchida com o exemplo resolvido da página, e os números do texto devem bater com os da calculadora.
 - Para testar a interação no navegador do app: `.claude/launch.json` define o servidor `wiki-build`, que serve o build em http://localhost:3000/wiki-engenharia/. Rode `npm run build` antes.
-- **Navbar no limite:** os rótulos curtos e o CSS de `site/src/css/custom.css` deixam cerca de 130 px de folga nas larguras mais apertadas (1000 e 1200 px). Um 7º item ou um rótulo longo pode voltar a quebrar a linha. Teste nessas larguras antes de adicionar itens.
+- **Navbar no limite:** com a busca, a faixa compacta (só logo, itens próximos, busca de 7rem) vai de 997 a 1279 px. A folga mínima medida é de 40 px em 997 px e de 67 px em 1280 px, quando o título volta, nos dois idiomas. Um 7º item ou um rótulo longo pode quebrar a linha: meça nessas larguras antes de adicionar itens.
+- **Fase 6 (busca):** busca local com `@easyops-cn/docusaurus-search-local` (`decisions/0006`), em PT e EN. Ela só funciona no site gerado (`npm run build` + `npm run serve`), não no `npm start`. Defeito estético conhecido: o caminho dos resultados repete a seção ("Normas › Normas › …"), porque o plugin junta o item ativo da navbar com a categoria da barra lateral.
 
 ## 8. Regras de trabalho para agentes
 

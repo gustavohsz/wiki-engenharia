@@ -1,0 +1,33 @@
+{
+  "theme.SearchBar.label": {
+    "message": "Buscar",
+    "description": "Rótulo e texto do campo de busca (plugin @easyops-cn/docusaurus-search-local)"
+  },
+  "theme.SearchBar.noResultsText": {
+    "message": "Nenhum resultado"
+  },
+  "theme.SearchBar.searchInContext": {
+    "message": "Ver todos os resultados em \"{context}\""
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "Ver todos os resultados"
+  },
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": "Ver todos os resultados fora de \"{context}\""
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "1 página encontrada|{count} páginas encontradas"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Buscar na wiki"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "Resultados da busca por \"{query}\""
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "Nenhuma página encontrada"
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": "Em todo o site"
+  }
+}

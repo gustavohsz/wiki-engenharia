@@ -30,9 +30,5 @@
   "item.label.Cálculos": {
     "message": "Calculations",
     "description": "Navbar item with label Cálculos"
-  },
-  "item.label.GitHub": {
-    "message": "GitHub",
-    "description": "Navbar item with label GitHub"
   }
 }

@@ -9,6 +9,7 @@ Cada decisão importante do projeto fica em um arquivo numerado, para que qualqu
 | 0003 | Armazenamento dos arquivos BIM/CAD: GitHub Releases, com convenção de nomes e versões | Aceita |
 | 0004 | Idiomas: português padrão, inglês secundário | Aceita |
 | 0005 | Licenças: MIT para o código, CC BY 4.0 para o conteúdo | Aceita |
+| 0006 | Busca local com @easyops-cn/docusaurus-search-local | Aceita |
 
 ## Formato
 

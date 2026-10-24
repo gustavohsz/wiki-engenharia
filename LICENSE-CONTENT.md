@@ -21,7 +21,7 @@ indique a licença e diga se fez alterações.
 
 - **Arquivos e imagens de terceiros** (por exemplo, famílias de fabricantes) mantêm a licença original. A fonte e a licença ficam registradas na ficha de cada item e prevalecem sobre este arquivo.
 - **Normas técnicas** (ABNT, IEC etc.) não são reproduzidas nesta wiki. Os resumos são textos próprios, sob CC BY 4.0. As normas continuam pertencendo aos seus organismos.
-- O logo, o favicon e a imagem de compartilhamento atuais (`site/static/img/logo.svg`, `favicon.ico`, `docusaurus-social-card.jpg`) vêm do Docusaurus (licença MIT, Meta Platforms) e serão substituídos.
+- O logo e a identidade visual (pasta `marca/` e as imagens geradas em `site/static/img/`) são do projeto e seguem esta licença (CC BY 4.0). O ícone do GitHub na navbar é marca do GitHub, usada só para indicar o link do repositório.
 
 ## Aviso
 
