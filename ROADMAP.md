@@ -59,5 +59,6 @@ Legenda: `[x]` feito · `[ ]` pendente. Atualizado em 2026-10-24.
 
 - [x] Busca local em PT e EN com `@easyops-cn/docusaurus-search-local` (`decisions/0006`). Junto com ela: navbar ativa por seção, GitHub como ícone e faixa compacta da navbar até 1279 px
 - [x] Identidade visual própria: logo (raio), cores azul e âmbar, favicon SVG/ICO, apple-touch-icon e imagem de compartilhamento, com fontes e gerador em `marca/`
-- [ ] Verificação automática de links externos
+- [x] Verificação semanal de links externos com lychee (`decisions/0007`, `.github/workflows/verificar-links.yml`): abre ou fecha a issue "Links quebrados" sozinha, sem bloquear a publicação
+- [ ] Primeira execução manual do workflow de links conferida no GitHub
 - [ ] Revisar o conteúdo em inglês

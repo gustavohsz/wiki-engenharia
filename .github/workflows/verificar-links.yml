@@ -1,0 +1,95 @@
+# Verifica os links externos (http/https) do conteúdo da wiki.
+# Links internos já são verificados pelo build (onBrokenLinks: 'throw').
+# Decisão e motivos: decisions/0007-verificacao-de-links-externos.md
+#
+# Resultado:
+#   - link quebrado  → abre (ou atualiza) a issue "Links quebrados"
+#   - tudo certo     → fecha essa issue, se estiver aberta
+# Não bloqueia a publicação do site.
+
+name: Verificar links externos
+
+on:
+  schedule:
+    - cron: '0 9 * * 1' # Toda segunda-feira, 09:00 UTC (06:00 em Brasília)
+  workflow_dispatch: # Botão "Run workflow" na aba Actions
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: verificar-links
+  cancel-in-progress: true
+
+env:
+  ROTULO: links-quebrados
+  TITULO: Links quebrados
+
+jobs:
+  verificar:
+    name: Verificar links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v5
+
+      - name: Verificar links com lychee
+        id: lychee
+        uses: lycheeverse/lychee-action@v2.9.0
+        with:
+          fail: false # Quem decide o que fazer são os passos abaixo
+          args: >-
+            --no-progress
+            --scheme https --scheme http
+            --exclude-loopback
+            --max-retries 3
+            --retry-wait-time 10
+            --timeout 30
+            --accept 200..=299,429
+            'site/docs/**/*.md'
+            'site/i18n/**/*.md'
+            'README.md'
+
+      # Código 2 = algum link quebrado. Abre a issue ou atualiza a que já existe.
+      - name: Abrir ou atualizar a issue
+        if: steps.lychee.outputs.exit_code == 2
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXECUCAO: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          {
+            echo "A verificação semanal encontrou links externos que não responderam."
+            echo "Abra cada link no navegador antes de corrigir: o site pode estar fora do ar só no momento,"
+            echo "ou bloquear robôs (nesse caso, inclua o endereço em \`.lycheeignore\`, com o motivo)."
+            echo
+            echo "Execução: $EXECUCAO"
+            echo
+            cat lychee/out.md
+          } > corpo.md
+          gh label create "$ROTULO" --color B60205 --description "Encontrado pela verificação de links externos" --force
+          numero=$(gh issue list --label "$ROTULO" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$numero" ]; then
+            gh issue edit "$numero" --body-file corpo.md
+            gh issue comment "$numero" --body "Lista atualizada na verificação de $(date -u +%Y-%m-%d)."
+          else
+            gh issue create --title "$TITULO" --label "$ROTULO" --body-file corpo.md
+          fi
+
+      # Código 0 = tudo certo. Fecha a issue aberta, se houver.
+      - name: Fechar a issue se tudo estiver certo
+        if: steps.lychee.outputs.exit_code == 0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          numero=$(gh issue list --label "$ROTULO" --state open --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          if [ -n "$numero" ]; then
+            gh issue close "$numero" --comment "Todos os links externos responderam na verificação de $(date -u +%Y-%m-%d). Fechando."
+          fi
+
+      # Outro código = erro do próprio lychee (configuração, rede do runner). Falha o job.
+      - name: Erro na verificação
+        if: steps.lychee.outputs.exit_code != 0 && steps.lychee.outputs.exit_code != 2
+        run: |
+          echo "O lychee terminou com código ${{ steps.lychee.outputs.exit_code }}. Veja o log do passo anterior."
+          exit 1

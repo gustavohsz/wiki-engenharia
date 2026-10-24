@@ -59,7 +59,8 @@ wiki-engenharia/
 ├── decisions/           ← registro de decisões (ADRs)
 ├── templates/           ← modelos de página por seção (fora do site)
 ├── marca/               ← fontes do logo, favicon e imagem social + gerador (fora do site)
-├── .github/workflows/   ← publicação automática (deploy.yml)
+├── .github/workflows/   ← publicação (deploy.yml) e verificação semanal de links externos (verificar-links.yml)
+├── .lycheeignore        ← endereços que a verificação de links ignora (sempre com motivo)
 └── site/                ← aplicação Docusaurus
     ├── docusaurus.config.js
     ├── sidebars.js
@@ -129,6 +130,7 @@ Pendências menores:
 - A calculadora abre preenchida com o exemplo resolvido da página, e os números do texto devem bater com os da calculadora.
 - Para testar a interação no navegador do app: `.claude/launch.json` define o servidor `wiki-build`, que serve o build em http://localhost:3000/wiki-engenharia/. Rode `npm run build` antes.
 - **Navbar no limite:** com a busca, a faixa compacta (só logo, itens próximos, busca de 7rem) vai de 997 a 1279 px. A folga mínima medida é de 40 px em 997 px e de 67 px em 1280 px, quando o título volta, nos dois idiomas. Um 7º item ou um rótulo longo pode quebrar a linha: meça nessas larguras antes de adicionar itens.
+- **Links externos:** o workflow `verificar-links.yml` roda toda segunda-feira e sob demanda. Quando acha link quebrado, abre ou atualiza a issue com rótulo `links-quebrados`, e a fecha quando tudo volta a funcionar. Ele não bloqueia a publicação. Falso positivo de site que bloqueia robôs vai para `.lycheeignore`, com comentário. Ver `decisions/0007`.
 - **Fase 6 (busca):** busca local com `@easyops-cn/docusaurus-search-local` (`decisions/0006`), em PT e EN. Ela só funciona no site gerado (`npm run build` + `npm run serve`), não no `npm start`. Defeito estético conhecido: o caminho dos resultados repete a seção ("Normas › Normas › …"), porque o plugin junta o item ativo da navbar com a categoria da barra lateral.
 
 ## 8. Regras de trabalho para agentes

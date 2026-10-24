@@ -1,0 +1,9 @@
+# Endereços que a verificação de links externos deve ignorar
+# (.github/workflows/verificar-links.yml, decisions/0007).
+#
+# Use só para sites que bloqueiam robôs ou exigem login, e que funcionam no navegador.
+# Uma expressão regular por linha, sempre com um comentário explicando o motivo e a data.
+#
+# Exemplo:
+# # 2026-11-03: fabricante X responde 403 para acessos automáticos; funciona no navegador.
+# ^https://www\.fabricante-x\.com\.br/

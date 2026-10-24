@@ -10,6 +10,7 @@ Cada decisão importante do projeto fica em um arquivo numerado, para que qualqu
 | 0004 | Idiomas: português padrão, inglês secundário | Aceita |
 | 0005 | Licenças: MIT para o código, CC BY 4.0 para o conteúdo | Aceita |
 | 0006 | Busca local com @easyops-cn/docusaurus-search-local | Aceita |
+| 0007 | Verificação semanal de links externos com lychee | Aceita |
 
 ## Formato
 
