@@ -4,6 +4,8 @@ description: Cálculo da queda de tensão em circuitos de baixa tensão e verifi
 sidebar_position: 10
 ---
 
+import QuedaDeTensao from '@site/src/components/QuedaDeTensao';
+
 :::caution
 Ferramenta de apoio. Não substitui a análise e a responsabilidade técnica do profissional habilitado. Confira sempre as premissas abaixo.
 :::
@@ -69,24 +71,24 @@ O valor de ρ vem da resistividade do cobre a 20 °C (0,017241 Ω·mm²/m) corri
 
 ## Calculadora
 
-:::note Em desenvolvimento
-A calculadora interativa entra na Fase 4 do roadmap. Até lá, use as fórmulas e o exemplo abaixo.
-:::
+A calculadora abre preenchida com os dados do [exemplo resolvido](#exemplo-resolvido) abaixo. Aceita vírgula ou ponto como separador decimal.
+
+<QuedaDeTensao />
 
 ## Exemplo resolvido
 
 **Dados:** chuveiro de 5500 W ligado entre duas fases de um sistema 127/220 V (circuito de 220 V, 2 condutores carregados), cos φ = 1, comprimento de 20 m. O condutor é o [cabo flexível 450/750 V em PVC](../catalogo/condutores/cabo-flexivel-450-750-v-pvc.md) de 4 mm², em eletroduto embutido em alvenaria (método B1).
 
 1. Corrente de projeto: I = 5500 / 220 = **25 A**. Pela capacidade de condução, 2,5 mm² (24 A no método B1) não serve, e 4 mm² (32 A) atende.
-2. Queda de tensão: ΔV = 2 × 0,0206 × 20 × 25 × 1 / 4 ≈ **5,15 V**.
-3. Queda percentual: ΔV% = 5,15 / 220 × 100 ≈ **2,34%**, menor que os 4% admitidos para o circuito terminal.
+2. Queda de tensão: ΔV = 2 × 0,02063 × 20 × 25 × 1 / 4 ≈ **5,16 V**.
+3. Queda percentual: ΔV% = 5,16 / 220 × 100 ≈ **2,34%**, menor que os 4% admitidos para o circuito terminal.
 4. Verificação do percurso total: se o alimentador do quadro já tem 1,5% de queda, o total é 1,5 + 2,34 = **3,84%**, ainda dentro dos 4% da alimentação em baixa tensão.
 
 **Comprimento máximo.** Com o alimentador em 1,5%, sobram 2,5% para este circuito. Isolando L na fórmula:
 
 ```text
 L máx = ΔV% × V × S / (100 × 2 × ρ × I)
-      = 2,5 × 220 × 4 / (100 × 2 × 0,0206 × 25) ≈ 21,3 m
+      = 2,5 × 220 × 4 / (100 × 2 × 0,02063 × 25) ≈ 21,3 m
 ```
 
 Acima de cerca de 21 m, este circuito precisaria de condutor de 6 mm².

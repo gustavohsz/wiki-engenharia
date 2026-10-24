@@ -52,6 +52,9 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
+      - name: Testes das calculadoras
+        run: npm test
+
       - name: Build (português e inglês)
         run: npm run build
 

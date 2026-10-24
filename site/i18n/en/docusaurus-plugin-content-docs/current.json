@@ -2,5 +2,33 @@
   "version.label": {
     "message": "Next",
     "description": "The label for version current"
+  },
+  "sidebar.wikiSidebar.category.Catalog": {
+    "message": "Catalog",
+    "description": "The label for category 'Catalog' in sidebar 'wikiSidebar'"
+  },
+  "sidebar.wikiSidebar.category.Conductors": {
+    "message": "Conductors",
+    "description": "The label for category 'Conductors' in sidebar 'wikiSidebar'"
+  },
+  "sidebar.wikiSidebar.category.Courses": {
+    "message": "Courses",
+    "description": "The label for category 'Courses' in sidebar 'wikiSidebar'"
+  },
+  "sidebar.wikiSidebar.category.Revit for electrical design": {
+    "message": "Revit for electrical design",
+    "description": "The label for category 'Revit for electrical design' in sidebar 'wikiSidebar'"
+  },
+  "sidebar.wikiSidebar.category.Standards": {
+    "message": "Standards",
+    "description": "The label for category 'Standards' in sidebar 'wikiSidebar'"
+  },
+  "sidebar.wikiSidebar.category.Documentation": {
+    "message": "Documentation",
+    "description": "The label for category 'Documentation' in sidebar 'wikiSidebar'"
+  },
+  "sidebar.wikiSidebar.category.Calculations": {
+    "message": "Calculations",
+    "description": "The label for category 'Calculations' in sidebar 'wikiSidebar'"
   }
 }

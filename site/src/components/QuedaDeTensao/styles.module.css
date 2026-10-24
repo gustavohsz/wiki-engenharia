@@ -1,0 +1,134 @@
+/* Calculadora de queda de tensão. Usa as variáveis do Infima (tema do
+   Docusaurus), então acompanha o modo claro e escuro. */
+
+/* O layout depende da largura disponível para a calculadora (container
+   query), não da tela: na página de docs ela divide espaço com os menus. */
+.raiz {
+  container-type: inline-size;
+  margin: 1.5rem 0;
+}
+
+.calculadora {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  background: var(--ifm-background-surface-color);
+}
+
+/* Largo: formulário e resultado lado a lado. */
+@container (min-width: 760px) {
+  .calculadora {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  }
+}
+
+/* Médio: resultado embaixo, grupos do formulário em duas colunas. */
+@container (min-width: 480px) and (max-width: 759.98px) {
+  .formulario {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 1.25rem;
+  }
+}
+
+.formulario fieldset {
+  margin: 0 0 1rem;
+  padding: 0;
+  border: 0;
+}
+
+.formulario legend {
+  margin-bottom: 0.5rem;
+  font-weight: var(--ifm-font-weight-bold);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.campo label {
+  font-size: 0.9rem;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  min-height: 2.25rem;
+  padding: 0.35rem 0.6rem;
+  font: inherit;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-400);
+  border-radius: var(--ifm-global-radius);
+}
+
+.campo input:focus,
+.campo select:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 1px;
+}
+
+.campo small {
+  color: var(--ifm-color-emphasis-700);
+}
+
+.opcoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.resultado {
+  align-self: start;
+}
+
+.tituloResultado {
+  margin-bottom: 0.75rem;
+}
+
+.valores {
+  margin: 0 0 1rem;
+}
+
+.valores > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.valores dt {
+  font-weight: normal;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.valores dd {
+  margin: 0;
+  font-weight: var(--ifm-font-weight-bold);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.sugestoes {
+  margin: 1rem 0;
+  padding-left: 1.2rem;
+}
+
+.listaErros {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.aviso {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+}

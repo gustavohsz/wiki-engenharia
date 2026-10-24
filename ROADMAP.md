@@ -38,13 +38,15 @@ Legenda: `[x]` feito · `[ ]` pendente. Atualizado em 2026-10-24.
   - Documentação: como criar uma página nesta wiki (`documentacao/como-criar-uma-pagina.md`)
 - [ ] Biblioteca BIM/CAD: primeira ficha. Depende de um arquivo próprio do mantenedor e da decisão `0003` (fica para a Fase 5)
 - [x] Modelos validados na prática e ajustados (título com aspas, subpastas, fichas genéricas; ver `templates/README.md`)
-- [ ] **Revisão técnica do mantenedor** das páginas piloto, escritas por IA
+- [x] Revisão técnica do mantenedor das páginas piloto (2026-10-24)
 
-## Fase 4 — Primeira calculadora
+## Fase 4 — Primeira calculadora ✅
 
-- [ ] Escolher o cálculo (sugestão: queda de tensão em condutores)
-- [ ] Componente React em `site/src/components/` embutido na página via MDX
-- [ ] Página explicativa com norma, premissas e limites
+- [x] Cálculo escolhido: queda de tensão em condutores (fórmula simplificada, cobre a 70 °C, seções de 1,5 a 25 mm²)
+- [x] Componente `site/src/components/QuedaDeTensao/` embutido na página PT e EN. O cálculo fica separado em `calculo.mjs`, com testes em `calculo.test.mjs` (`npm test`, que também roda no workflow antes do build)
+- [x] Página explicativa com norma, premissas e limites (Fase 3), agora com a calculadora aberta no exemplo resolvido
+- [x] Testado no navegador: entrada por potência e por corrente, trifásico, vírgula decimal, erro de validação, celular (375 px), modo claro e escuro
+- [ ] Próximas calculadoras (sugestões): capacidade de condução com fatores de correção, fórmula completa com R e X para seções acima de 25 mm²
 
 ## Fase 5 — Biblioteca BIM/CAD
 

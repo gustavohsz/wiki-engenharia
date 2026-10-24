@@ -373,5 +373,122 @@
   },
   "home.title": {
     "message": "Engineering Wiki"
+  },
+  "calc.qt.erro.tensao": {
+    "message": "Enter a voltage greater than zero."
+  },
+  "calc.qt.erro.carga": {
+    "message": "Enter the power or current, greater than zero."
+  },
+  "calc.qt.erro.cosPhi": {
+    "message": "The power factor must be between 0 and 1."
+  },
+  "calc.qt.erro.comprimento": {
+    "message": "Enter a length greater than zero."
+  },
+  "calc.qt.erro.secao": {
+    "message": "Choose a cross-section from the list."
+  },
+  "calc.qt.erro.quedaMontante": {
+    "message": "The upstream drop cannot be negative."
+  },
+  "calc.qt.erro.limite": {
+    "message": "Enter a limit greater than zero."
+  },
+  "calc.qt.aria": {
+    "message": "Voltage drop calculator"
+  },
+  "calc.qt.grupo.circuito": {
+    "message": "Circuit"
+  },
+  "calc.qt.tipo": {
+    "message": "Circuit type"
+  },
+  "calc.qt.tipo.mono": {
+    "message": "2 conductors (L-N or L-L)"
+  },
+  "calc.qt.tipo.tri": {
+    "message": "Three-phase (3 conductors)"
+  },
+  "calc.qt.tensao": {
+    "message": "Rated voltage (V)"
+  },
+  "calc.qt.tensao.ajuda": {
+    "message": "Phase-to-neutral for L-N circuits; phase-to-phase otherwise."
+  },
+  "calc.qt.grupo.carga": {
+    "message": "Load"
+  },
+  "calc.qt.modo.potencia": {
+    "message": "Power (W)"
+  },
+  "calc.qt.modo.corrente": {
+    "message": "Current (A)"
+  },
+  "calc.qt.potencia": {
+    "message": "Active power (W)"
+  },
+  "calc.qt.corrente": {
+    "message": "Design current (A)"
+  },
+  "calc.qt.cosPhi": {
+    "message": "Power factor (cos φ)"
+  },
+  "calc.qt.grupo.condutor": {
+    "message": "Copper conductor"
+  },
+  "calc.qt.comprimento": {
+    "message": "Circuit length, one way (m)"
+  },
+  "calc.qt.secao": {
+    "message": "Cross-section (mm²)"
+  },
+  "calc.qt.grupo.limites": {
+    "message": "Limits"
+  },
+  "calc.qt.quedaMontante": {
+    "message": "Existing upstream drop (%)"
+  },
+  "calc.qt.quedaMontante.ajuda": {
+    "message": "Drop from the feeder to this circuit's panel. Use 0 if unknown."
+  },
+  "calc.qt.limite": {
+    "message": "Total allowed limit (%)"
+  },
+  "calc.qt.limite.ajuda": {
+    "message": "4% for public low-voltage supply; 7% with a dedicated transformer (NBR 5410, 6.2.7)."
+  },
+  "calc.qt.resultado": {
+    "message": "Result"
+  },
+  "calc.qt.res.corrente": {
+    "message": "Current"
+  },
+  "calc.qt.res.volts": {
+    "message": "Drop in this circuit"
+  },
+  "calc.qt.res.total": {
+    "message": "Total drop"
+  },
+  "calc.qt.res.atende": {
+    "message": "Pass: {total}% ≤ {limite}%."
+  },
+  "calc.qt.res.naoAtende": {
+    "message": "Fail: {total}% > {limite}%."
+  },
+  "calc.qt.res.comprimentoMax": {
+    "message": "Maximum length with {secao} mm²: {comprimento} m."
+  },
+  "calc.qt.res.semFolga": {
+    "message": "The upstream drop already reaches the limit: there is no margin left for this circuit."
+  },
+  "calc.qt.res.secaoMinima": {
+    "message": "Smallest cross-section that meets the voltage drop limit: {secao} mm²."
+  },
+  "calc.qt.res.semSecao": {
+    "message": "No cross-section up to 25 mm² meets the limit. Shorten the circuit or use the full formula with the manufacturer's R and X."
+  },
+  "calc.qt.aviso": {
+    "message": "Checks voltage drop only. The final cross-section must also meet the other NBR 5410 criteria, such as current-carrying capacity, minimum size and protection."
   }
 }

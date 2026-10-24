@@ -43,6 +43,7 @@ Comandos (sempre dentro de `site/`):
 |---|---|
 | `npm install` | Instalar dependências (uma vez, ou quando o `package.json` mudar) |
 | `npm start` | Servidor local com recarga automática (http://localhost:3000/wiki-engenharia/). Serve **um idioma por vez**: para o inglês, `npm start -- --locale en` |
+| `npm test` | Testes das calculadoras (`node --test`) |
 | `npm run build` | Build de produção. **Rode antes de dar qualquer tarefa por concluída** |
 | `npm run serve` | Servir o build gerado, para conferir como ficará publicado |
 | `npm run write-translations -- --locale en` | Gerar/atualizar textos de interface em inglês |
@@ -115,7 +116,15 @@ Pendências menores:
 
 - Logo (`static/img/logo.svg`), favicon e imagem de compartilhamento (`docusaurus-social-card.jpg`) ainda são os do Docusaurus.
 - `npm install` reporta 34 vulnerabilidades em dependências do Docusaurus. Não rode `npm audit fix --force`, porque ele troca versões e quebra o site. Acompanhe as atualizações do Docusaurus.
-- **Fase 3 (conteúdo piloto):** 5 das 6 seções têm uma página real em PT e EN: o resumo da NBR 5410, queda de tensão, a ficha do cabo 450/750 V, a Aula 1 do curso de Revit e "Como criar uma página". A Biblioteca BIM/CAD espera um arquivo próprio do mantenedor e a decisão 0003. As páginas foram escritas por IA e **aguardam revisão técnica do mantenedor**. Não as trate como revisadas.
+- **Fase 3 (conteúdo piloto):** 5 das 6 seções têm uma página real em PT e EN: o resumo da NBR 5410, queda de tensão, a ficha do cabo 450/750 V, a Aula 1 do curso de Revit e "Como criar uma página". A Biblioteca BIM/CAD espera um arquivo próprio do mantenedor e a decisão 0003. As páginas foram escritas por IA e revisadas pelo mantenedor em 2026-10-24.
+- **Fase 4 (calculadora):** a calculadora de queda de tensão está em `site/src/components/QuedaDeTensao/` e embutida em `calculos/queda-de-tensao.md` (PT e EN).
+
+**Padrão para calculadoras** (siga nas próximas):
+
+- O cálculo fica num módulo puro `calculo.mjs`, sem React, com testes em `calculo.test.mjs`. Os testes usam o executor nativo do Node (`node --test`), sem dependência nova. Registre cada arquivo de teste no script `test` do `site/package.json`. O workflow roda `npm test` antes do build, então uma fórmula quebrada impede a publicação.
+- A interface fica em `index.js` + `styles.module.css`. Os textos usam `translate()`/`<Translate>` com ids `calc.<sigla>.*`, traduzidos em `site/i18n/en/code.json`. O layout usa container query, porque a página de docs divide a largura com os menus.
+- A calculadora abre preenchida com o exemplo resolvido da página, e os números do texto devem bater com os da calculadora.
+- Para testar a interação no navegador do app: `.claude/launch.json` define o servidor `wiki-build`, que serve o build em http://localhost:3000/wiki-engenharia/. Rode `npm run build` antes.
 - **Navbar no limite:** os rótulos curtos e o CSS de `site/src/css/custom.css` deixam cerca de 130 px de folga nas larguras mais apertadas (1000 e 1200 px). Um 7º item ou um rótulo longo pode voltar a quebrar a linha. Teste nessas larguras antes de adicionar itens.
 
 ## 8. Regras de trabalho para agentes

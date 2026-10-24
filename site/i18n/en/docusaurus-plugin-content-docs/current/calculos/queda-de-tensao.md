@@ -4,6 +4,8 @@ description: Voltage drop calculation for low-voltage circuits and check against
 sidebar_position: 10
 ---
 
+import QuedaDeTensao from '@site/src/components/QuedaDeTensao';
+
 :::caution
 Support tool. It does not replace the analysis and technical responsibility of a qualified professional. Always check the assumptions below.
 :::
@@ -69,24 +71,24 @@ Three-phase:        ΔV = √3 · ρ · L · I · cos φ / S
 
 ## Calculator
 
-:::note Under development
-The interactive calculator arrives in Phase 4 of the roadmap. Until then, use the formulas and the worked example below.
-:::
+The calculator opens with the data from the [worked example](#worked-example) below. Both comma and dot work as decimal separators.
+
+<QuedaDeTensao />
 
 ## Worked example
 
 **Data:** a 5500 W electric shower connected between two phases of a 127/220 V system (220 V circuit, 2 loaded conductors), cos φ = 1, length 20 m. The conductor is the 4 mm² [450/750 V flexible PVC cable](../catalogo/condutores/cabo-flexivel-450-750-v-pvc.md) in conduit embedded in masonry (method B1).
 
 1. Design current: I = 5500 / 220 = **25 A**. On current-carrying capacity, 2.5 mm² (24 A in method B1) is not enough and 4 mm² (32 A) is.
-2. Voltage drop: ΔV = 2 × 0.0206 × 20 × 25 × 1 / 4 ≈ **5.15 V**.
-3. Percentage drop: ΔV% = 5.15 / 220 × 100 ≈ **2.34%**, below the 4% allowed for the final circuit.
+2. Voltage drop: ΔV = 2 × 0.02063 × 20 × 25 × 1 / 4 ≈ **5.16 V**.
+3. Percentage drop: ΔV% = 5.16 / 220 × 100 ≈ **2.34%**, below the 4% allowed for the final circuit.
 4. Total path check: if the panel feeder already has a 1.5% drop, the total is 1.5 + 2.34 = **3.84%**, still within the 4% allowed for low-voltage supply.
 
 **Maximum length.** With the feeder at 1.5%, 2.5% is left for this circuit. Solving for L:
 
 ```text
 L max = ΔV% × V × S / (100 × 2 × ρ × I)
-      = 2.5 × 220 × 4 / (100 × 2 × 0.0206 × 25) ≈ 21.3 m
+      = 2.5 × 220 × 4 / (100 × 2 × 0.02063 × 25) ≈ 21.3 m
 ```
 
 Beyond about 21 m, this circuit would need a 6 mm² conductor.
