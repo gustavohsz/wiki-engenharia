@@ -1,0 +1,14 @@
+# Dependências e build
+node_modules/
+site/build/
+site/.docusaurus/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Configuração local de ferramentas de IA
+.claude/settings.local.json
