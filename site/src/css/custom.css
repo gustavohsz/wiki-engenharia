@@ -28,3 +28,22 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* ---------- Navbar ----------
+   Abaixo de 997 px o Docusaurus troca a navbar pelo menu "hambúrguer".
+   Logo acima disso, os 6 itens + idioma + GitHub não cabem com o título:
+   aqui o título vira só o logo e os itens ficam mais próximos. */
+.navbar__item {
+  white-space: nowrap; /* Nenhum item quebra em duas linhas */
+}
+
+@media (min-width: 997px) and (max-width: 1199.98px) {
+  .navbar__title {
+    display: none; /* O logo continua levando à página inicial */
+  }
+
+  .navbar__item {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}

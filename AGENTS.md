@@ -108,7 +108,7 @@ Atualizado em: 2026-10-24.
 - [x] `AGENTS.md`, `CLAUDE.md`, `ROADMAP.md`, `decisions/`, `templates/`
 - [x] **Fase 1 concluída.** `npm install` e `npm run build` validados no Windows (Node 22). Config com título, `url`/`baseUrl` do GitHub Pages e i18n `pt-BR` (padrão) + `en` com seletor de idioma. Blog e tutorial de exemplo removidos. 6 seções criadas em PT e EN (`_category_.json` + `index.md`). Navbar, rodapé e página inicial apontam para as 6 seções. Interface em inglês em `site/i18n/en/`.
 - [x] Workflow de publicação `.github/workflows/deploy.yml` criado (Fase 2). Ele roda `npm ci` e `npm run build` em `site/` com Node 22 e publica `site/build` no GitHub Pages a cada push na `main` que mexa em `site/`. Em pull requests só faz o build.
-- [ ] Ativar o Pages no GitHub (Settings → Pages → Source: GitHub Actions) e conferir a primeira publicação. Até isso ser feito, o job "Publicar" falha.
+- [x] **Site publicado** em https://gustavohsz.github.io/wiki-engenharia/ (inglês em `/wiki-engenharia/en/`). Pages ativado com Source: GitHub Actions. Cada push na `main` que mexa em `site/` republica o site automaticamente.
 - [x] Licenças definidas (`decisions/0005`): código MIT (`LICENSE`), conteúdo CC BY 4.0 (`LICENSE-CONTENT.md`). As duas aparecem no rodapé do site.
 
 Pendências menores:
@@ -116,6 +116,7 @@ Pendências menores:
 - Logo (`static/img/logo.svg`), favicon e imagem de compartilhamento (`docusaurus-social-card.jpg`) ainda são os do Docusaurus.
 - `npm install` reporta 34 vulnerabilidades em dependências do Docusaurus. Não rode `npm audit fix --force`, porque ele troca versões e quebra o site. Acompanhe as atualizações do Docusaurus.
 - As páginas de seção são só introduções, com aviso de "em construção".
+- **Navbar no limite:** os rótulos curtos e o CSS de `site/src/css/custom.css` deixam cerca de 130 px de folga nas larguras mais apertadas (1000 e 1200 px). Um 7º item ou um rótulo longo pode voltar a quebrar a linha. Teste nessas larguras antes de adicionar itens.
 
 ## 8. Regras de trabalho para agentes
 

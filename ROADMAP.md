@@ -23,8 +23,9 @@ Legenda: `[x]` feito · `[ ]` pendente. Atualizado em 2026-10-24.
 ## Fase 2 — Publicação
 
 - [x] Workflow `.github/workflows/deploy.yml`: faz o build de `site/` a cada push na `main` (só se `site/` ou o workflow mudarem) e publica no GitHub Pages. Em pull requests só testa o build. Também pode ser rodado à mão pela aba Actions
-- [ ] No GitHub: Settings → Pages → Source: **GitHub Actions** (ação manual do mantenedor)
-- [ ] Primeira publicação conferida em https://gustavohsz.github.io/wiki-engenharia/
+- [x] No GitHub: Settings → Pages → Source: **GitHub Actions**
+- [x] Primeira publicação conferida em https://gustavohsz.github.io/wiki-engenharia/ (PT e EN) em 2026-10-24
+- [x] Navbar apertada em telas médias: rótulo curto "Biblioteca"/"Library" e, entre 997 e 1199 px, só o logo e itens mais próximos (`site/src/css/custom.css`). Folga medida de ~130 px em 1000 e 1200 px
 - [x] Licença decidida (`decisions/0005`): MIT para o código (`LICENSE`), CC BY 4.0 para o conteúdo (`LICENSE-CONTENT.md`), informadas no rodapé do site
 
 ## Fase 3 — Conteúdo piloto

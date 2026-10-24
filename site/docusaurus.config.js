@@ -78,7 +78,7 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
-          {type: 'doc', docId: 'biblioteca-bim-cad/index', position: 'left', label: 'Biblioteca BIM/CAD'},
+          {type: 'doc', docId: 'biblioteca-bim-cad/index', position: 'left', label: 'Biblioteca'}, // Rótulo curto: a navbar fica apertada em telas médias
           {type: 'doc', docId: 'catalogo/index', position: 'left', label: 'Catálogo'},
           {type: 'doc', docId: 'cursos/index', position: 'left', label: 'Cursos'},
           {type: 'doc', docId: 'normas/index', position: 'left', label: 'Normas'},

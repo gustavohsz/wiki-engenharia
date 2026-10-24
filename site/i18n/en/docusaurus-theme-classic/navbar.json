@@ -7,9 +7,9 @@
     "message": "Engineering Wiki logo",
     "description": "The alt text of navbar logo"
   },
-  "item.label.Biblioteca BIM/CAD": {
-    "message": "BIM/CAD Library",
-    "description": "Navbar item with label Biblioteca BIM/CAD"
+  "item.label.Biblioteca": {
+    "message": "Library",
+    "description": "Navbar item with label Biblioteca"
   },
   "item.label.Catálogo": {
     "message": "Catalog",
