@@ -16,6 +16,6 @@ Normas técnicas como as ABNT NBR e IEC são documentos pagos e protegidos. Esta
 - Escopo e principais pontos, em texto próprio.
 - Onde a norma se aplica nos cálculos e procedimentos desta wiki.
 
-:::note
-Seção em construção. O primeiro resumo entra na Fase 3 do roadmap.
-:::
+## Resumos
+
+- [ABNT NBR 5410: Instalações elétricas de baixa tensão](./abnt-nbr-5410.md)

@@ -16,6 +16,6 @@ Technical standards such as ABNT NBR and IEC are paid, copyrighted documents. Th
 - Scope and key points, in our own words.
 - Where the standard applies in this wiki's calculations and procedures.
 
-:::note
-Section under construction. The first summary arrives in Phase 3 of the roadmap.
-:::
+## Summaries
+
+- [ABNT NBR 5410: Low-voltage electrical installations](./abnt-nbr-5410.md)

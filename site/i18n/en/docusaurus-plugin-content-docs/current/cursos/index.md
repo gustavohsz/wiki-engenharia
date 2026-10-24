@@ -12,6 +12,6 @@ Learning paths on electrical design with Revit and AutoCAD, split into modules a
 - Each lesson states its objectives, prerequisites, estimated duration and exercises.
 - Lesson order follows the sidebar.
 
-:::note
-Section under construction. The first course arrives in Phase 3 of the roadmap.
-:::
+## Available courses
+
+- [Revit for electrical design](./revit-para-projeto-eletrico/index.md)

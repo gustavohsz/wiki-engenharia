@@ -10,6 +10,6 @@ Electrical installation calculations. Each page explains the theory, reference s
 The calculators in this wiki are support tools. They **do not replace** the analysis and technical responsibility of a qualified professional. Always check the standard, reference edition, assumptions and units stated on each page.
 :::
 
-:::note
-Section under construction. The first calculator (voltage drop) arrives in Phase 4 of the roadmap.
-:::
+## Available calculations
+
+- [Voltage drop in conductors](./queda-de-tensao.md)

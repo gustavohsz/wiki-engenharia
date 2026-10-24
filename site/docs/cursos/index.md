@@ -12,6 +12,6 @@ Trilhas de aprendizado sobre projeto elétrico com Revit e AutoCAD, divididas em
 - Cada aula informa objetivos, pré-requisitos, duração estimada e exercícios.
 - A ordem das aulas segue a barra lateral.
 
-:::note
-Seção em construção. O primeiro curso entra na Fase 3 do roadmap.
-:::
+## Cursos disponíveis
+
+- [Revit para projeto elétrico](./revit-para-projeto-eletrico/index.md)

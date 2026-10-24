@@ -13,6 +13,6 @@ Data sheets for electrical products and components, organized by category, with 
 
 Data comes from manufacturers' public catalogs. Always check the latest datasheet before specifying.
 
-:::note
-Section under construction. The first sheet arrives in Phase 3 of the roadmap.
-:::
+## Categories
+
+- [Conductors](./condutores/index.md)

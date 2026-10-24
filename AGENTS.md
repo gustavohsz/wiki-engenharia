@@ -115,7 +115,7 @@ Pendências menores:
 
 - Logo (`static/img/logo.svg`), favicon e imagem de compartilhamento (`docusaurus-social-card.jpg`) ainda são os do Docusaurus.
 - `npm install` reporta 34 vulnerabilidades em dependências do Docusaurus. Não rode `npm audit fix --force`, porque ele troca versões e quebra o site. Acompanhe as atualizações do Docusaurus.
-- As páginas de seção são só introduções, com aviso de "em construção".
+- **Fase 3 (conteúdo piloto):** 5 das 6 seções têm uma página real em PT e EN: o resumo da NBR 5410, queda de tensão, a ficha do cabo 450/750 V, a Aula 1 do curso de Revit e "Como criar uma página". A Biblioteca BIM/CAD espera um arquivo próprio do mantenedor e a decisão 0003. As páginas foram escritas por IA e **aguardam revisão técnica do mantenedor**. Não as trate como revisadas.
 - **Navbar no limite:** os rótulos curtos e o CSS de `site/src/css/custom.css` deixam cerca de 130 px de folga nas larguras mais apertadas (1000 e 1200 px). Um 7º item ou um rótulo longo pode voltar a quebrar a linha. Teste nessas larguras antes de adicionar itens.
 
 ## 8. Regras de trabalho para agentes

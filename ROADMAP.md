@@ -30,8 +30,15 @@ Legenda: `[x]` feito · `[ ]` pendente. Atualizado em 2026-10-24.
 
 ## Fase 3 — Conteúdo piloto
 
-- [ ] Uma página real em cada seção, usando os modelos de `templates/`, em PT e EN
-- [ ] Validar se os modelos funcionam na prática e ajustá-los
+- [x] Páginas piloto em PT e EN, usando os modelos de `templates/`:
+  - Normas: resumo da ABNT NBR 5410 (`normas/abnt-nbr-5410.md`)
+  - Cálculos: queda de tensão, com teoria e exemplo resolvido; a calculadora vem na Fase 4 (`calculos/queda-de-tensao.md`)
+  - Catálogo: categoria Condutores e ficha genérica do cabo flexível 450/750 V PVC (`catalogo/condutores/`)
+  - Cursos: "Revit para projeto elétrico", apresentação e Aula 1 (`cursos/revit-para-projeto-eletrico/`)
+  - Documentação: como criar uma página nesta wiki (`documentacao/como-criar-uma-pagina.md`)
+- [ ] Biblioteca BIM/CAD: primeira ficha. Depende de um arquivo próprio do mantenedor e da decisão `0003` (fica para a Fase 5)
+- [x] Modelos validados na prática e ajustados (título com aspas, subpastas, fichas genéricas; ver `templates/README.md`)
+- [ ] **Revisão técnica do mantenedor** das páginas piloto, escritas por IA
 
 ## Fase 4 — Primeira calculadora
 

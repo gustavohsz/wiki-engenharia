@@ -13,6 +13,6 @@ Fichas de produtos e componentes elétricos, organizadas por categoria e com esp
 
 Os dados vêm de catálogos públicos dos fabricantes. Confira sempre a folha de dados mais recente antes de especificar.
 
-:::note
-Seção em construção. A primeira ficha entra na Fase 3 do roadmap.
-:::
+## Categorias
+
+- [Condutores](./condutores/index.md)

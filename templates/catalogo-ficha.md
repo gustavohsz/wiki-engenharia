@@ -4,6 +4,7 @@ description: [Resumo de uma linha]
 sidebar_position: 10
 ---
 
+{/* Imagem opcional: apague a linha abaixo se não houver imagem própria ou com licença de uso. */}
 ![[Texto alternativo]](/img/catalogo/[arquivo].png)
 
 ## Resumo
@@ -14,7 +15,7 @@ sidebar_position: 10
 
 | Característica | Valor |
 |---|---|
-| Fabricante | [nome] |
+| Fabricante | [nome, ou "Genérico (vários fabricantes)" para ficha de tipo de produto] |
 | Referência / modelo | [código] |
 | Categoria | [ex.: Condutores, Disjuntores] |
 | Tensão nominal | [valor e unidade] |

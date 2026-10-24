@@ -12,6 +12,6 @@ Procedures, standards and work guides for electrical design in Revit and AutoCAD
 - **Standards:** naming, layer, parameter and presentation conventions.
 - **Guides:** general guidance and good practices.
 
-:::note
-Section under construction. The first procedure arrives in Phase 3 of the roadmap.
-:::
+## Procedures
+
+- [How to create a page in this wiki](./como-criar-uma-pagina.md)

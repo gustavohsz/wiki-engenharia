@@ -12,6 +12,6 @@ Procedimentos, padrões e guias de trabalho para projetos elétricos em Revit e 
 - **Padrões:** convenções de nomes, camadas, parâmetros e apresentação.
 - **Guias:** orientações gerais e boas práticas.
 
-:::note
-Seção em construção. O primeiro procedimento entra na Fase 3 do roadmap.
-:::
+## Procedimentos
+
+- [Como criar uma página nesta wiki](./como-criar-uma-pagina.md)

@@ -1,5 +1,5 @@
 ---
-title: [Título da aula]
+title: "[Aula N: Título da aula]"
 description: [O que o aluno aprende nesta aula]
 sidebar_position: 1
 ---
