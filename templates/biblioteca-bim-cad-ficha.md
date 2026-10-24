@@ -17,7 +17,7 @@ sidebar_position: 10
 | Tipo | [Família Revit (.rfa) / Bloco DWG / Template (.rte) / Outro] |
 | Disciplina | [Elétrica] |
 | Software e versão mínima | [Revit 20XX / AutoCAD 20XX] |
-| Versão do arquivo | [1.0] |
+| Versão do item | [v1.0] (ver convenção em `decisions/0003`) |
 | Categoria Revit / camada CAD | [ex.: Dispositivos elétricos] |
 | Hospedagem | [Baseada em face / Baseada em parede / Sem host] |
 | Nível de detalhe | [Grosseiro / Médio / Fino] |
@@ -35,7 +35,11 @@ sidebar_position: 10
 
 ## Download
 
-- [Nome do arquivo e versão](URL-da-release-ou-arquivo)
+Arquivos em GitHub Releases (`decisions/0003`). Um link por versão do software; o ano no nome é a versão mínima para abrir o arquivo.
+
+| Arquivo | Versão mínima | Tamanho |
+|---|---|---|
+| [[item]_v[1.0]_r[2022].rfa](https://github.com/gustavohsz/wiki-engenharia/releases/download/[item]-v[1.0]/[item]_v[1.0]_r[2022].rfa) | Revit [2022] | [x] MB |
 
 ## Fonte e licença
 
@@ -47,4 +51,4 @@ sidebar_position: 10
 
 | Versão | Data | Mudança |
 |---|---|---|
-| [1.0] | [AAAA-MM-DD] | [Versão inicial] |
+| [v1.0] | [AAAA-MM-DD] | [Versão inicial] |

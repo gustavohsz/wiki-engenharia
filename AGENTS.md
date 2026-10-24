@@ -98,7 +98,7 @@ O repositório é **público**. Portanto:
 3. **Nada de dados pessoais, credenciais ou projetos de clientes** no repositório.
 4. **Cálculos:** toda calculadora deve informar norma e edição de referência, premissas, unidades, limites de aplicação e o aviso de que é ferramenta de apoio e não substitui a responsabilidade técnica do profissional.
 5. **Famílias Revit não abrem em versões anteriores do Revit.** Indique sempre a versão do arquivo e organize os downloads por versão.
-6. **Arquivos pesados** (RVT, DWG grandes): ver `decisions/0003-armazenamento-de-arquivos-bim-cad.md`. Não commitar binários grandes no histórico do Git.
+6. **Arquivos para download** (`.rfa`, `.rte`, `.dwg`, de qualquer tamanho) vão para **GitHub Releases**, nunca para o repositório. No repositório ficam só a ficha e a imagem de prévia. A convenção de nomes, tags e versões está em `decisions/0003-armazenamento-de-arquivos-bim-cad.md` e o passo a passo em `site/docs/documentacao/como-publicar-um-arquivo-bim-cad.md`. Releases publicadas não são alteradas: correção vira versão nova.
 
 ## 7. Estado atual
 

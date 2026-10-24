@@ -50,9 +50,10 @@ Legenda: `[x]` feito · `[ ]` pendente. Atualizado em 2026-10-24.
 
 ## Fase 5 — Biblioteca BIM/CAD
 
-- [ ] Confirmar a decisão de armazenamento (`decisions/0003`)
-- [ ] Definir convenção de nomes e de versão (Revit, AutoCAD)
-- [ ] Primeiras fichas com download
+- [x] Decisão de armazenamento confirmada (`decisions/0003`): todos os arquivos para download em GitHub Releases; no repositório, só fichas e prévias
+- [x] Convenção de nomes e de versão (Revit, AutoCAD) registrada na `decisions/0003`
+- [x] Modelo da ficha ajustado e procedimento `documentacao/como-publicar-um-arquivo-bim-cad.md` (PT/EN)
+- [ ] Primeiras fichas com download. **Depende do mantenedor:** escolher e preparar o primeiro arquivo próprio, nomeado pela convenção
 
 ## Fase 6 — Melhorias
 

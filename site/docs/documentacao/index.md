@@ -15,3 +15,4 @@ Procedimentos, padrões e guias de trabalho para projetos elétricos em Revit e 
 ## Procedimentos
 
 - [Como criar uma página nesta wiki](./como-criar-uma-pagina.md)
+- [Como publicar um arquivo da Biblioteca BIM/CAD](./como-publicar-um-arquivo-bim-cad.md)

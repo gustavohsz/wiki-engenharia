@@ -6,7 +6,7 @@ Cada decisão importante do projeto fica em um arquivo numerado, para que qualqu
 |---|---|---|
 | 0001 | Docusaurus como plataforma | Aceita |
 | 0002 | Site em subpasta `site/` | Aceita |
-| 0003 | Armazenamento dos arquivos BIM/CAD | **Proposta** (aguarda confirmação do mantenedor) |
+| 0003 | Armazenamento dos arquivos BIM/CAD: GitHub Releases, com convenção de nomes e versões | Aceita |
 | 0004 | Idiomas: português padrão, inglês secundário | Aceita |
 | 0005 | Licenças: MIT para o código, CC BY 4.0 para o conteúdo | Aceita |
 

@@ -15,3 +15,4 @@ Procedures, standards and work guides for electrical design in Revit and AutoCAD
 ## Procedures
 
 - [How to create a page in this wiki](./como-criar-uma-pagina.md)
+- [How to publish a BIM/CAD Library file](./como-publicar-um-arquivo-bim-cad.md)
