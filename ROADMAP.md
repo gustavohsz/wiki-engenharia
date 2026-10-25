@@ -60,5 +60,6 @@ Legenda: `[x]` feito · `[ ]` pendente. Atualizado em 2026-10-24.
 - [x] Busca local em PT e EN com `@easyops-cn/docusaurus-search-local` (`decisions/0006`). Junto com ela: navbar ativa por seção, GitHub como ícone e faixa compacta da navbar até 1279 px
 - [x] Identidade visual própria: logo (raio), cores azul e âmbar, favicon SVG/ICO, apple-touch-icon e imagem de compartilhamento, com fontes e gerador em `marca/`
 - [x] Verificação semanal de links externos com lychee (`decisions/0007`, `.github/workflows/verificar-links.yml`): abre ou fecha a issue "Links quebrados" sozinha, sem bloquear a publicação
-- [ ] Primeira execução manual do workflow de links conferida no GitHub
+- [x] Primeira execução conferida (2026-10-24): 28 links únicos, só o catálogo da ABNT falhou. Era falso positivo (a ABNT corta conexões vindas do GitHub Actions) e foi para o `.lycheeignore`; a issue #1 foi aberta automaticamente
+- [ ] Confirmar que a execução semanal de segunda-feira, 2026-10-26, fechou a issue #1 sozinha. Exige o push do `.lycheeignore` antes dela. Se a issue continuar aberta, ver o log da execução na aba Actions
 - [ ] Revisar o conteúdo em inglês

@@ -7,3 +7,8 @@
 # Exemplo:
 # # 2026-11-03: fabricante X responde 403 para acessos automáticos; funciona no navegador.
 # ^https://www\.fabricante-x\.com\.br/
+
+# 2026-10-24: o catálogo da ABNT corta a conexão (Connection reset by peer) quando o acesso
+# vem dos servidores do GitHub Actions; responde normalmente (200) a partir do Brasil.
+# Visto na primeira execução: https://github.com/gustavohsz/wiki-engenharia/issues/1
+^https://www\.abntcatalogo\.com\.br/
